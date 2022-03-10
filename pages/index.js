@@ -1,10 +1,48 @@
-import Head from 'next/head';
-import Image from 'next/image';
+import styled from 'styled-components';
+import AllGames from '../components/AllGames';
+import Layout from '../components/Layout';
+import StyledGrid from '../styles/StyledGrid';
 
-export default function Home() {
+const API_URL =
+  'https://api.rawg.io/api/platforms?key=9334c51261834dab8b09ba0ddadf9333';
+
+const StyledTitle = styled.h1`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 5rem;
+  letter-spacing: 1px;
+  margin-bottom: 4rem;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+`;
+
+const HomePage = ({ games }) => {
+  const results = games.results;
+  console.log(results);
+
   return (
-    <div>
-      <h1>home</h1>
-    </div>
+    <Layout>
+      <StyledTitle>Browse The Latest Games In The World</StyledTitle>
+      <StyledGrid>
+        {results.map(game => (
+          <AllGames key={game.id} game={game} />
+        ))}
+      </StyledGrid>
+    </Layout>
   );
-}
+};
+
+export const getStaticProps = async () => {
+  const res = await fetch(`${API_URL}`);
+  const data = await res.json();
+
+  return {
+    props: {
+      games: data,
+    },
+  };
+};
+
+export default HomePage;

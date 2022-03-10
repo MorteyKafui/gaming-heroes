@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
   background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 5rem;
 
   .container {
     display: flex;

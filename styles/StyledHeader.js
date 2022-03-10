@@ -4,6 +4,7 @@ const StyledHeader = styled.header`
   background-color: rgba(0, 0, 0, 0.5);
   height: 10vh;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  margin-bottom: 5rem;
 
   nav {
     display: flex;
