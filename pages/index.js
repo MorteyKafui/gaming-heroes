@@ -15,7 +15,6 @@ const StyledTitle = styled.h1`
   letter-spacing: 1px;
   margin-bottom: 4rem;
   padding: 1rem;
-  border-bottom: 1px solid #ccc;
 `;
 
 const HomePage = ({ games }) => {
@@ -26,9 +25,11 @@ const HomePage = ({ games }) => {
     <Layout>
       <StyledTitle>Browse The Latest Games In The World</StyledTitle>
       <StyledGrid>
-        {results.map(game => (
-          <AllGames key={game.id} game={game} />
-        ))}
+        {results ? (
+          results.map(game => <AllGames key={game.id} game={game} />)
+        ) : (
+          <p>Failed to load games!</p>
+        )}
       </StyledGrid>
     </Layout>
   );

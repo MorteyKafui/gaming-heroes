@@ -8,7 +8,7 @@ const Header = () => {
         <nav>
           <h1>
             <Link href='/'>
-              <a>GamesWay</a>
+              <a>Gaming Heroes</a>
             </Link>
           </h1>
           <ul>
@@ -18,13 +18,13 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href='/about'>
-                <a>About</a>
+              <Link href='/'>
+                <a>All Games</a>
               </Link>
             </li>
             <li>
               <Link href='/contact'>
-                <a>Contact</a>
+                <a>About Us</a>
               </Link>
             </li>
           </ul>
